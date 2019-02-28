@@ -190,5 +190,57 @@
 
 
   "identity.auth_framework.endpoint.tenant_list_enabled" : false,
-  "identity.auth_framework.endpoint.mutual_ssl_manager_enabled" : true
+  "identity.auth_framework.endpoint.mutual_ssl_manager_enabled" : true,
+
+
+  "identity.xacml.policy_point": {
+    "PDP": {
+      "enabled": false,
+      "caching": {
+        "decision_caching": {
+          "enabled": true,
+          "caching_interval": "300"
+        },
+        "attribute_caching": {
+          "enabled": true,
+          "caching_interval": "300"
+        },
+        "resource_caching": {
+          "enabled": true,
+          "caching_interval": "300"
+        },
+        "policy_caching": {
+          "caching_interval": "100"
+        }
+      },
+      "schema_validation_enabled": true,
+      "balana_config_enabled": true,
+      "multiple_decision_profile_enabled": true,
+      "global_policy_combining_algorithm": "urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-overrides",
+      "registry_level_policy_cache_clear": false,
+      "reference_max_policy_entries": "3000",
+      "policy_finder": "org.wso2.carbon.identity.entitlement.policy.store.RegistryPolicyStoreManageModule",
+      "policy_store_module": "org.wso2.carbon.identity.entitlement.policy.store.RegistryPolicyStoreManageModule",
+      "policy_data_store_module": "org.wso2.carbon.identity.entitlement.policy.store.DefaultPolicyDataStore"
+    },
+    "PAP": {
+      "enabled": true,
+      "policy_add_start_enable": true,
+      "items_per_page": "10",
+      "entitlement_data_Finder": "org.wso2.carbon.identity.entitlement.pap.CarbonEntitlementDataFinder",
+      "policy_publisher_module": "org.wso2.carbon.identity.entitlement.policy.publisher.CarbonBasicPolicyPublisherModule",
+      "policy_version_module": "org.wso2.carbon.identity.entitlement.policy.version.DefaultPolicyVersionManager",
+      "status_data_handler": "org.wso2.carbon.identity.entitlement.SimplePAPStatusDataHandler"
+    },
+    "PIP": {
+      "attribute_designators": {
+        "designator_1": "org.wso2.carbon.identity.entitlement.pip.DefaultAttributeFinder",
+        "designator_2": "org.wso2.carbon.identity.application.authz.xacml.pip.AuthenticationContextAttributePIP"
+      },
+      "resource_finder": "org.wso2.carbon.identity.entitlement.pip.DefaultResourceFinder"
+    }
+  },
+  "identity.xacml.entitlement_engine_caching_interval": "100000",
+  "identity.xacml.JSON_shorten_form_enabled": false
+
 }
