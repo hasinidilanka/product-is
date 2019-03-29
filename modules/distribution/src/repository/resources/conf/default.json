@@ -337,7 +337,26 @@
   "identity.events.schemes.OIDCLogoutHandler.properties.enable": false,
   "identity.events.schemes.confirmationCodesInvalidate.subscriptions": [
     "POST_DELETE_USER"
-  ]
+  ],
+
+
+
+  "authenticator.token_ui_authenticator.disable": true,
+  "authenticator.token_ui_authenticator.priority": "5",
+
+  "authenticator.saml_sso_authenticator.disable": true,
+  "authenticator.saml_sso_authenticator.priority": "10",
+  "authenticator.saml_sso_authenticator.config.LoginPage": "/carbon/admin/login.jsp",
+  "authenticator.saml_sso_authenticator.config.ServiceProviderID": "carbonServer",
+  "authenticator.saml_sso_authenticator.config.IdentityProviderSSOServiceURL": "$ref{deployment.base_path}/samlsso",
+  "authenticator.saml_sso_authenticator.config.NameIDPolicyFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+  "authenticator.saml_sso_authenticator.config.AssertionConsumerServiceURL": "$ref{deployment.base_path}/acs",
+  "authenticator.saml_sso_authenticator.config.JITUserProvisioningEnabled": false,
+  "authenticator.saml_sso_authenticator.config.IsSuperAdminRoleRequired": false,
+
+  "authenticator.mutual_ssl_authenticator.priority": "5",
+  "authenticator.mutual_ssl_authenticator.config.UsernameHeader": "UserName",
+  "authenticator.mutual_ssl_authenticator.config.WhiteListEnabled": false
 
 
 }
