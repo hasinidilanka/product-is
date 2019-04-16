@@ -403,7 +403,7 @@
   "oauth.token_validation.authorization_code_validity": "5m",
   "oauth.token_validation.app_access_token_validity": "1h",
   "oauth.token_validation.user_access_token_validity": "1h",
-  "oauth.token_validation.refresh_token_validity": "1410m",
+  "oauth.token_validation.refresh_token_validity": "1d",
   "oauth.timestamp_skew": "$ref{server.clock_skew}",
   "oauth.token_renewal.renew_refresh_token": true,
   "oauth.token_renewal.renew_access_token_per_request": false,
