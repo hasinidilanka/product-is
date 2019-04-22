@@ -591,7 +591,11 @@
 
         <!-- SAML Token validity period in minutes -->
         <SAMLResponseValidityPeriod>{{saml.response.validity}}</SAMLResponseValidityPeriod>
-        <UseAuthenticatedUserDomainCrypto>{{authentication.sign_auth_response_with_tenant_of}}</UseAuthenticatedUserDomainCrypto>
+        {% if saml.enable_user_domain_crpto is defined %}
+        <UseAuthenticatedUserDomainCrypto>{{saml.enable_user_domain_crpto}}</UseAuthenticatedUserDomainCrypto>
+        {% else %}
+        <UseAuthenticatedUserDomainCrypto>false</UseAuthenticatedUserDomainCrypto>
+        {% endif %}
         <SAMLDefaultSigningAlgorithmURI>{{saml.signing_alg}}</SAMLDefaultSigningAlgorithmURI>
         <SAMLDefaultDigestAlgorithmURI>{{saml.digest_alg}}</SAMLDefaultDigestAlgorithmURI>
         <SAMLDefaultAssertionEncryptionAlgorithmURI>{{saml.assertion_entryption_alg}}</SAMLDefaultAssertionEncryptionAlgorithmURI>
